@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-05-02 15:43:12
+<?php /* Smarty version Smarty-3.1.13, created on 2013-05-02 20:24:22
          compiled from "/home/supermanner/www/practice/tpl/templates/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:118277911351820a31479ec0-01631879%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '30d71f35f76b292e6b49001d6746affb8e250543' => 
     array (
       0 => '/home/supermanner/www/practice/tpl/templates/index.tpl',
-      1 => 1367476979,
+      1 => 1367493859,
       2 => 'file',
     ),
   ),
@@ -28,13 +28,47 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <head>
 <link rel="stylesheet" type="text/css" href="css/common.css">
+<script src="jquery-2.0.0.min.js"></script>
+<script>
+$(document).ready(function()
+{
+    $('#more').click(function()
+    {
+        var data = { offset : $('#offset').val(), limit:$('#limit').val() };
+
+        $.ajax({
+            type: "POST",
+            url:"Record.php",
+            data: data,
+            success: function(data, dataType)
+            {
+             jQuery . each( data, function( key, value ) {
+                jQuery( '#additional' ) . append( 
+                '<ul>名前: ' + value.name + '</ul>'
+                '<ul>投稿時間: ' + value.mtime + '</ul>'
+                '<ul>内容: ' + value.text + '</ul>'
+                );
+             });
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown)
+            {
+                alert('Error:' + errorThrown);
+            }
+        });
+    });
+});
+</script>
 </head>
 <body>
     <h1>パワハラに負けない</h1>
         <ul>ここにかいてねー</ul>
         <form method="POST" action="commit.php">
             <div>名前：<input type="text" name="name"></div>
-            <div>ほんぶんだよー：<input type="text" name="text"></div>
+            <div>本文：
+            <textarea name=text" cols=40 rows=4>
+            あいうえお
+            </textarea>
+            </div>
             <input type="submit" value="送信">
             <input type="reset" value="取消">
         </form>
@@ -52,6 +86,12 @@ $_smarty_tpl->tpl_vars['record']->_loop = true;
         <ul><?php echo $_smarty_tpl->tpl_vars['record']->value['text'];?>
 </ul>
    <?php } ?>
+   <div id='additional'></div>
+   <form method="POST">
+        <input type='hidden' id='offset' value=5>
+        <input type='hidden' id='limit' value=5>
+        <input type="submit" id = 'more' value="もっとみる">
+   </form>
    </div>
 </body>
 </html>

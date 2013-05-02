@@ -20,21 +20,24 @@ class Create_PDO
         }
     }
 
-    public function getAlltext()
+    public function getAlltext($offset = 0, $limit = 4)
     {
-        $sql = 'select * from `user_data`';
+        $sql = sprintf('select * from `user_data` LIMIT %d, %d', $offset, $limit);
         try {
             $stmt = $this->pdo->query($sql);
+            $data_list = $stmt->fetchAll();
         } catch(PDOException $e) {
             print('Error;'.$e->getMessage());
             die();
         }
         $this->pdo = null;
 
-        return $stmt;
+        return $data_list;
     }
     public function insertText($name, $text)
     {
+        $name = htmlspecialchars($name);
+        $text = htmlspecialchars($text);
         $format = "INSERT INTO `user_data` (name, text, ctime) values('%s', '%s', %s);";
         $sql = sprintf($format, $name, $text, time());
         try {
