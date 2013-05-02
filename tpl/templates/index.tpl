@@ -1,7 +1,10 @@
 <html>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<head>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
 <body>
-    <h1>てすとのけいじばんだよー</h1>
+    <h1>パワハラに負けない</h1>
         <ul>ここにかいてねー</ul>
         <form method="POST" action="commit.php">
             <div>名前：<input type="text" name="name"></div>

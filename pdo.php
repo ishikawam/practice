@@ -6,7 +6,7 @@ class Create_PDO
     /** @const password */
     const PASSWORD = 'ERO0pK68';
     /** @const dsn */
-    const DSN = 'mysql:dbname=supermanner_board;host=mysql423.db.sakura.ne.jp';
+    const DSN = 'mysql:dbname=supermanner_board;host=mysql423.db.sakura.ne.jp;charset=utf8';
 
     var $pdo;
 

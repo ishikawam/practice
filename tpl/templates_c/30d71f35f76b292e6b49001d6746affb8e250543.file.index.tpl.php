@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-05-02 01:48:43
+<?php /* Smarty version Smarty-3.1.13, created on 2013-05-02 15:43:12
          compiled from "/home/supermanner/www/practice/tpl/templates/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:20320697635181400fc841e7-85063116%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:118277911351820a31479ec0-01631879%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '30d71f35f76b292e6b49001d6746affb8e250543' => 
     array (
       0 => '/home/supermanner/www/practice/tpl/templates/index.tpl',
-      1 => 1367426918,
+      1 => 1367476979,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '20320697635181400fc841e7-85063116',
+  'nocache_hash' => '118277911351820a31479ec0-01631879',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_5181400fcc0137_74836244',
+  'unifunc' => 'content_51820a314d8dd2_57338094',
   'variables' => 
   array (
     'data' => 0,
@@ -24,10 +24,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5181400fcc0137_74836244')) {function content_5181400fcc0137_74836244($_smarty_tpl) {?><html>
+<?php if ($_valid && !is_callable('content_51820a314d8dd2_57338094')) {function content_51820a314d8dd2_57338094($_smarty_tpl) {?><html>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<head>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
 <body>
-    <h1>てすとのけいじばんだよー</h1>
+    <h1>パワハラに負けない</h1>
         <ul>ここにかいてねー</ul>
         <form method="POST" action="commit.php">
             <div>名前：<input type="text" name="name"></div>
