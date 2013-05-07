@@ -22,7 +22,7 @@ class Create_PDO
 
     public function getAlltext($offset = 0, $limit = 4)
     {
-        $sql = sprintf('select * from `user_data` LIMIT %d, %d', $offset, $limit);
+        $sql = sprintf('select * from `user_data` ORDER BY `mtime` DESC LIMIT %d, %d;', $offset, $limit);
         try {
             $stmt = $this->pdo->query($sql);
             $data_list = $stmt->fetchAll();
@@ -31,7 +31,6 @@ class Create_PDO
             die();
         }
         $this->pdo = null;
-
         return $data_list;
     }
     public function insertText($name, $text)
