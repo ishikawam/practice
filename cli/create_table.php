@@ -13,7 +13,7 @@ for($i=0;$i < 100; $i++) {
         `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         `ctime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
         PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;";
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
     $sql = sprintf($format, $i);
     print($sql.'\n');
     $stmt = $_pdo->pdo->query($sql);

@@ -7,42 +7,47 @@
 <script src="js/response.js" charset="utf-8"></script>
 </head>
 <body>
-    <h1>あいうえおあいうえおあいうえおあいうえお</h1>
-<div style="padding:5px;background:#cccccc;border-color:#333333;border-width:0 0 3px 0;border-style:solid;">
+<div class="container clearfix">
+    <div class="grid first">
+        <h1><a href = "index.php" border="0">みるく速報</a></h1>
+    </div>
+    <div class="grid first">
         <ul>ここにかいてねー</ul>
+    </div> 
+    <div class="grid6 first">
         <form method="POST" action="commit.php">
-            <div>名前：<input type="text" name="name"></div>
-            <div>本文：
-            <textarea name="text" cols=40 rows=4>
-            あいうえお
-            </textarea>
+            <div class="grid2 first">名前</div>
+            <div class="grid4"><input type="text" name="name" size="120" maxlength="30"></div>
+            <div class="grid2 first">スレタイ</div>
+            <div class="grid4"><input type="text" name="title" size="120" maxlength="30"></div>
+            <div class="grid6 first">本文：</div>
+            <div class="grid6 first">
+            <textarea name="text" cols=120 rows=4></textarea>
             </div>
+            <div class="grid6 first">
+            <input type="hidden" name = "pcode" value = {$pcode}>
             <input type="submit" value="送信">
             <input type="reset" value="取消">
+            </div>
         </form>
-   </div>
-   <div>
-    {foreach from=$data item=record}
-        <ul>名前:{$record.name}</ul>
-        <ul>投稿時間:{$record.mtime}</ul>
-        <ul>内容</ul>
-        <ul>{$record.text}</ul>
+    </div>
 
-<div id="modal">
-<div class="background"></div>
-<div class="container"></div>
-</div><!-- modal -->
-        <div id="res">
-            <button id="res_button"><a href="response.php" class="modal">返信</a></button>
-       </div>
-   {/foreach}
-   </div>
-   <div id="test"></div>
-   <div id="additional"></div>
-   <form method="POST" id='more_form' action=''>
-        <input type="hidden" id="offset" value=4>
-        <input type="hidden" id="limit" value=5>
-        <input type="submit" id = "more" value="もっとみる">
-   </form>
+    <!-- 記事ここから-->    
+    {foreach from=$data item=record name=rows}
+        <div style="clear:both";>
+        <a href="response/response.php?parent_id={$record.id}">{$record.title}</a></div>
+        <div class="name">名前:{$record.name}</div>
+        <div class="time">投稿時間:{$record.mtime}</div>
+        <div class="contents">{$record.text}</div>
+    {/foreach}
+    <div id="additional"></div>
+        <form method="POST" id='more_form' action=''>
+            <input type="hidden" value = {$pcode}>
+            <input type="hidden" id="offset" value= 5>
+            <input type="hidden" id="limit" value= 5>
+            <input type="submit" id = "more" value="もっとみる">
+        </form>
+    </div>
+</div>
 </body>
 </html>

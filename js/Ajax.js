@@ -1,9 +1,12 @@
 $(document).ready(function()
    {
+       var cnt = 0;
+       
        $("#more").click(function()
            {
-               var data = { offset : $("#offset").val(), limit:$("#limit").val() };
-
+               cnt++;            
+               var data = { offset : 5 * cnt, limit:$("#limit").val()};
+                                              
                $.ajax({
                    type: "POST",
                    url:"Record.php",
@@ -13,11 +16,14 @@ $(document).ready(function()
                    success: function(data)
                    {
                    jQuery . each( data, function( key, value ) {
-                       jQuery( "#additional").append( 
-                           '<ul>name:'  + value.name + '</ul>')
-                           .append('<ul>time: ' + value.mtime + '</ul>')
-                       .append('<ul>content: ' + value.text + '</ul>'
-                           );
+                       jQuery( "#additional")
+                       .append(
+                           $("<div style='clear:both';></div>").append(
+                           $("<a></a>").attr("href","response/response.php?parent_id=" + value.id).text(value.title))
+                           )
+                       .append('<div class="name">名前:' + value.name + '</div>')
+                       .append('<div class="time">投稿時間:' + value.mtime + '</div>')
+                       .append('<div class="contents">' + value.text + '</div>');
                    });
                    jQuery('#test') . text('sucsess');
                },

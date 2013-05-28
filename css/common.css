@@ -1,3 +1,68 @@
+@charset "UTF-8";
+/* ÇØ·Ê¿§ */
+body{
+    background-image:url(../img/wall.jpg);
+    background-repeat: repeat;
+}
+div#contents {
+}
+/* ¥Æ¡¼¥Ö¥ë */
+div.name {
+    float: left;
+    width: 200px;
+}
+div.time {
+    width: 500px;
+}
+div.contents {
+    clear: both
+}
+div#postscript {
+    width: 500px;
+    height: 700px;
+}
+div#content {
+    width: 400px;
+    float:left;
+}
+
+.container {
+    width: 978px;
+    margin: 0 auto;
+    background-color:#ffffff;
+    padding: 5px 5px 5px 5px;
+}
+.grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
+    float: left;
+    display: inline;
+    margin-left: 30px;
+  }
+  .grid1 {width: 54px;}
+  .grid2 {width: 138px;}
+  .grid3 {width: 222px;}
+  .grid4 {width: 306px;}
+  .grid5 {width: 390px;}
+  .grid6 {width: 474px;}
+  .grid7 {width: 558px;}
+  .grid8 {width: 642px;}
+  .grid9 {width: 726px;}
+  .grid10 {width: 810px;}
+  .grid11 {width: 894px;}
+  .first {margin-left: 0;clear: left;}
+
+  /* clearfix */
+  .clearfix:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0;
+              }
+              /* IE6 */
+* html .clearfix {zoom: 1;}
+*/* IE7 */
+*:first-child+html .clearfix {zoom: 1;} 
 /* 09.´ú */
 h1{
     position:relative;
@@ -19,7 +84,7 @@ h1:before{
     color:#c96;
 }
 h1:after{
-content:" ";
+content:"";
 position:absolute;
 top:-2px;
 left:-10px;
@@ -32,3 +97,5 @@ border-radius:2px;
 -o-transform: rotate(-2deg);
 transform: rotate(-2deg);
 }
+
+
