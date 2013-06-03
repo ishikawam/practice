@@ -8,7 +8,3 @@ $pdo = new Create_PDO();
 $stmt = $pdo->getAlltext();
 $create_sm->smarty->assign('data',$stmt);
 $create_sm->smarty->display('index.tpl');
-
-
-
-?>
